@@ -1,33 +1,25 @@
-import { Navbar } from "@/components/Navbar";
-import { HeroSection } from "@/components/HeroSection";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
-import { ProcessSection } from "@/components/ProcessSection";
-import { FeaturesSection } from "@/components/FeaturesSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { CTASection } from "@/components/CTASection";
-import { Footer } from "@/components/Footer";
 import { LazyMotionProvider } from "@/components/LazyMotionProvider";
-import { OrganizationSchema, WebSiteSchema, LocalBusinessSchema } from "@/components/StructuredData";
+import { PortfolioNavbar } from "@/components/portfolio/PortfolioNavbar";
+import { PortfolioHero } from "@/components/portfolio/PortfolioHero";
+import { PortfolioAbout } from "@/components/portfolio/PortfolioAbout";
+import { PortfolioServices } from "@/components/portfolio/PortfolioServices";
+import { PortfolioContact } from "@/components/portfolio/PortfolioContact";
+import { PortfolioFooter } from "@/components/portfolio/PortfolioFooter";
 
 const Index = () => {
   return (
     <LazyMotionProvider>
-      {/* Structured Data for AEO */}
-      <OrganizationSchema />
-      <WebSiteSchema />
-      <LocalBusinessSchema includeRating={true} ratingValue={5} reviewCount={50} />
-      
       <div className="relative min-h-screen">
         <AnimatedBackground />
-        <Navbar />
+        <PortfolioNavbar />
         <main>
-          <HeroSection />
-          <ProcessSection />
-          <FeaturesSection />
-          <TestimonialsSection />
-          <CTASection />
+          <PortfolioHero />
+          <PortfolioAbout />
+          <PortfolioServices />
+          <PortfolioContact />
         </main>
-        <Footer />
+        <PortfolioFooter />
       </div>
     </LazyMotionProvider>
   );
