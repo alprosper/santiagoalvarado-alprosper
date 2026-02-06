@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Critical CSS inline - above-the-fold styles for instant render -->
+    <style>
+      /* Fonts - Critical weights only */
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/Inter-Regular.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/Inter-Medium.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/Inter-SemiBold.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/Inter-Bold.woff2') format('woff2')}
+      @font-face{font-family:'Syne';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/Syne-Bold.woff2') format('woff2')}
+      @font-face{font-family:'Syne';font-style:normal;font-weight:800;font-display:swap;src:url('/fonts/Syne-ExtraBold.woff2') format('woff2')}
+      
+      /* Theme variables */
+      :root{--background:60 10% 98%;--foreground:200 100% 8%;--primary:34 100% 50%;--primary-foreground:0 0% 100%;--card:0 0% 100%;--border:220 10% 88%;--muted:220 10% 92%;--muted-foreground:220 10% 40%;--secondary:220 10% 94%;--secondary-foreground:200 100% 8%;--glow-primary:34 100% 50%;--glow-secondary:40 100% 55%}
+      .dark{--background:220 20% 4%;--foreground:60 10% 95%;--primary:34 100% 50%;--primary-foreground:200 100% 8%;--card:220 15% 8%;--border:220 15% 18%;--muted:220 15% 15%;--muted-foreground:220 10% 55%;--secondary:220 15% 12%;--secondary-foreground:60 10% 95%}
+      
+      /* Base resets */
+      *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:hsl(var(--border))}
+      html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;tab-size:4}
+      body{margin:0;line-height:1.5;font-family:'Inter',ui-sans-serif,system-ui,sans-serif;background-color:hsl(var(--background));color:hsl(var(--foreground));-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+      #root{min-height:100vh;display:flex;flex-direction:column}
+      h1,h2,h3,h4,h5,h6{font-family:'Syne',sans-serif;font-weight:700;letter-spacing:-0.025em;margin:0}
+      p{margin:0}
+      img,video{max-width:100%;height:auto}
+      button,input,select,textarea{font:inherit}
+      a{color:inherit;text-decoration:inherit}
+      
+      /* Navbar critical */
+      nav{position:fixed;top:0;left:0;right:0;z-index:50}
+      .container{width:100%;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}
+      @media(min-width:640px){.container{max-width:640px}}
+      @media(min-width:768px){.container{max-width:768px}}
+      @media(min-width:1024px){.container{max-width:1024px}}
+      @media(min-width:1280px){.container{max-width:1280px}}
+      
+      /* Hero section critical */
+      .gradient-text{background-image:linear-gradient(135deg,hsl(40 95% 55%),hsl(15 80% 53%),hsl(8 70% 50%));-webkit-background-clip:text;background-clip:text;color:transparent}
+      .glow-text{text-shadow:0 0 40px hsl(var(--primary) / 0.5)}
+      .glass-card{background-color:hsl(var(--card) / 0.6);backdrop-filter:blur(24px);border:1px solid hsl(var(--border) / 0.3);border-radius:1rem}
+      .glow-effect{box-shadow:0 0 60px -15px hsl(var(--primary) / 0.4)}
+      
+      /* Hero layout */
+      section{position:relative}
+      .min-h-screen{min-height:100vh}
+      .flex{display:flex}
+      .items-center{align-items:center}
+      .justify-center{justify-content:center}
+      .grid{display:grid}
+      .gap-12{gap:3rem}
+      .space-y-8>*+*{margin-top:2rem}
+      .text-5xl{font-size:3rem;line-height:1}
+      @media(min-width:768px){.md\:text-6xl{font-size:3.75rem}}
+      @media(min-width:1024px){.lg\:text-7xl{font-size:4.5rem}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+      
+      /* Button critical */
+      .inline-flex{display:inline-flex}
+      .rounded-full{border-radius:9999px}
+      .rounded-md{border-radius:0.375rem}
+      .px-4{padding-left:1rem;padding-right:1rem}
+      .py-2{padding-top:0.5rem;padding-bottom:0.5rem}
+      .text-sm{font-size:0.875rem;line-height:1.25rem}
+      .text-lg{font-size:1.125rem;line-height:1.75rem}
+      .text-muted-foreground{color:hsl(var(--muted-foreground))}
+      .text-foreground{color:hsl(var(--foreground))}
+      .text-primary{color:hsl(var(--primary))}
+      .font-semibold{font-weight:600}
+      .font-bold{font-weight:700}
+      .bg-primary{background-color:hsl(var(--primary))}
+      .bg-card{background-color:hsl(var(--card))}
+      .bg-secondary{background-color:hsl(var(--secondary))}
+    </style>
+
+    <!-- Defer non-critical CSS - Vite injects CSS dynamically, this script handles it -->
+    <script>
+      (function(){
+        function makeAsync(link) {
+          if (!link || link.getAttribute('data-critical') === 'true') return;
+          var href = link.getAttribute('href');
+          if (!href || !href.includes('.css')) return;
+          
+          // Convert to preload pattern
+          link.rel = 'preload';
+          link.as = 'style';
+          link.onload = function() { this.onload = null; this.rel = 'stylesheet'; };
+          
+          // Add noscript fallback
+          var noscript = document.createElement('noscript');
+          var fallback = document.createElement('link');
+          fallback.rel = 'stylesheet';
+          fallback.href = href;
+          noscript.appendChild(fallback);
+          link.parentNode.insertBefore(noscript, link.nextSibling);
+        }
+        
+        // Watch for dynamically added stylesheets (Vite injects CSS)
+        var observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            mutation.addedNodes.forEach(function(node) {
+              if (node.tagName === 'LINK' && node.rel === 'stylesheet') {
+                makeAsync(node);
+              }
+            });
+          });
+        });
+        observer.observe(document.head, { childList: true });
+      })();
+    </script>
+
+    <!-- DNS Prefetch for faster external resources -->
+    <link rel="dns-prefetch" href="https://beta.leadconnectorhq.com" />
+
+    <!-- Preload LCP-critical font FIRST - Syne ExtraBold for hero h1 -->
+    <link rel="preload" href="/fonts/Syne-ExtraBold.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
+    <!-- Syne Bold: fallback heading weight -->
+    <link rel="preload" href="/fonts/Syne-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Inter Regular: body text -->
+    <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Secondary fonts - lower priority -->
+    <link rel="preload" href="/fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Preload main entry script for faster module loading -->
+    <link rel="modulepreload" href="/src/main.tsx" />
+
+    <!-- Prefetch likely navigation targets -->
+    <link rel="prefetch" href="/home" />
+
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <title>Alprosper | Your Business, Empowered.</title>
+    <meta name="title" content="Alprosper AI | Your Business, Empowered." />
+    <meta
+      name="description"
+      content="Empowering businesses with cost-effective resources & tech for sustainable growth, minimizing reliance on expensive agencies & time-consuming tasks."
+    />
+    <meta name="author" content="Alprosper Marketing, LLC" />
+    <meta
+      name="keywords"
+      content="Automation solutions Surprise AZ Small business automation Phoenix Client acquisition strategies Surprise Phoenix AZ business analytics Marketing automation services Arizona Surprise AZ small business growth Phoenix automation consulting Local business analytics Surprise Arizona marketing automation experts Small business advertising strategies Phoenix Surprise AZ digital marketing solutions Phoenix business automation consultants Analytics tools for small businesses Arizona Surprise AZ client acquisition services Phoenix small business advertising agency Automation consulting Surprise AZ Arizona business analytics solutions Small business marketing automation Phoenix Surprise AZ online advertising services Phoenix digital marketing analytics"
+    />
+    <meta
+      name="image"
+      content="https://assets.cdn.filesafe.space/cSyIZFAgwXwZic4pCtod/media/6657a92cce5dc937db0f9041.png"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/bS36VkQva5crttZbibO4OwdzLjU2/social-images/social-1766418542793-download (2).png"
+    />
+    <meta property="og:author" content="Alprosper Marketing, LLC" />
+    <meta
+      property="og:keywords"
+      content="Automation solutions Surprise AZ Small business automation Phoenix Client acquisition strategies Surprise Phoenix AZ business analytics Marketing automation services Arizona Surprise AZ small business growth Phoenix automation consulting Local business analytics Surprise Arizona marketing automation experts Small business advertising strategies Phoenix Surprise AZ digital marketing solutions Phoenix business automation consultants Analytics tools for small businesses Arizona Surprise AZ client acquisition services Phoenix small business advertising agency Automation consulting Surprise AZ Arizona business analytics solutions Small business marketing automation Phoenix Surprise AZ online advertising services Phoenix digital marketing analytics"
+    />
+    <meta
+      property="Title"
+      content="Alprosper AI - Automation and Client Acquisition Solutions in Surprise and Phoenix, Arizona"
+    />
+    <meta
+      property="description"
+      content="Alprosper AI offers automation and client acquisition solutions for small companies in Surprise and Phoenix, Arizona. We help businesses grow with ads, analytics, and automation."
+    />
+    <meta property="twitter:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@AlprosperAI" />
+    <meta
+      name="twitter:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/bS36VkQva5crttZbibO4OwdzLjU2/social-images/social-1766418542793-download (2).png"
+    />
+    <meta property="og:title" content="Alprosper AI | Your Business, Empowered." />
+    <meta name="twitter:title" content="Alprosper AI | Your Business, Empowered." />
+    <meta
+      property="og:description"
+      content="Empowering businesses with cost-effective resources &amp; tech for sustainable growth, minimizing reliance on expensive agencies &amp; time-consuming tasks."
+    />
+    <meta
+      name="twitter:description"
+      content="Empowering businesses with cost-effective resources &amp; tech for sustainable growth, minimizing reliance on expensive agencies &amp; time-consuming tasks."
+    />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- Deferred chat widget loading - loads after 3s or on scroll -->
+    <script>
+      (function() {
+        var chatLoaded = false;
+        
+        function loadChatWidget() {
+          if (chatLoaded) return;
+          chatLoaded = true;
+          
+          var script = document.createElement('script');
+          script.src = 'https://beta.leadconnectorhq.com/loader.js';
+          script.setAttribute('data-resources-url', 'https://beta.leadconnectorhq.com/chat-widget/loader.js');
+          script.setAttribute('data-widget-id', '66839376dd5856e4acbbe335');
+          document.body.appendChild(script);
+          
+          // Clean up listeners
+          window.removeEventListener('scroll', loadChatWidget);
+          window.removeEventListener('mousemove', loadChatWidget);
+          window.removeEventListener('touchstart', loadChatWidget);
+        }
+        
+        // Load after 3 seconds
+        setTimeout(loadChatWidget, 3000);
+        
+        // Or load on user interaction
+        window.addEventListener('scroll', loadChatWidget, { once: true, passive: true });
+        window.addEventListener('mousemove', loadChatWidget, { once: true, passive: true });
+        window.addEventListener('touchstart', loadChatWidget, { once: true, passive: true });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+/* App-specific global styles */
+/* Note: Most styling is handled through Tailwind and index.css */
+/* This file is kept minimal to reduce CSS bundle size */
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
