@@ -4,6 +4,7 @@ import { PortfolioNavbar } from "@/components/portfolio/PortfolioNavbar";
 import { PortfolioHero } from "@/components/portfolio/PortfolioHero";
 import { PortfolioAbout } from "@/components/portfolio/PortfolioAbout";
 import { PortfolioServices } from "@/components/portfolio/PortfolioServices";
+import { PortfolioProjects } from "@/components/portfolio/PortfolioProjects";
 import { PortfolioContact } from "@/components/portfolio/PortfolioContact";
 import { PortfolioFooter } from "@/components/portfolio/PortfolioFooter";
 
@@ -17,6 +18,7 @@ const Index = () => {
           <PortfolioHero />
           <PortfolioAbout />
           <PortfolioServices />
+          <PortfolioProjects />
           <PortfolioContact />
         </main>
         <PortfolioFooter />
