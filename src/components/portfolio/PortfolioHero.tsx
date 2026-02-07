@@ -1,6 +1,6 @@
 import { m } from "@/components/LazyMotionProvider";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Cog } from "lucide-react";
 import headshot from "@/assets/headshot.png";
 
 export const PortfolioHero = () => {
@@ -17,14 +17,14 @@ export const PortfolioHero = () => {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm text-muted-foreground">
-                <Sparkles className="w-4 h-4 text-primary" />
-                Marketing & Automation Specialist
+                <Cog className="w-4 h-4 text-primary" />
+                Automation Specialist
               </span>
             </m.div>
 
             {/* Name */}
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight mt-8">
-              Santiago <span className="gradient-text glow-text">Alvarado</span>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight mt-8">
+              I Turn Chaos Into <span className="gradient-text glow-text">Clockwork</span>
             </h1>
 
             {/* Tagline */}
@@ -34,7 +34,7 @@ export const PortfolioHero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              I help businesses generate leads and automate their processes so they can focus on what they're best at.
+              Automation specialist transforming repetitive tasks into elegant, self-running systems that save time and eliminate errors.
             </m.p>
 
             {/* CTA */}
@@ -52,17 +52,17 @@ export const PortfolioHero = () => {
                   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                Let's Work Together
+                Get In Touch
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button
                 variant="glass"
                 size="lg"
                 onClick={() => {
-                  document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
+                  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                View Services
+                View Projects
               </Button>
             </m.div>
           </div>

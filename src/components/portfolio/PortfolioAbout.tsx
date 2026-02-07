@@ -21,7 +21,7 @@ export const PortfolioAbout = () => {
             About Me
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold">
-            Turning <span className="gradient-text">Complexity</span> Into Growth
+            Building <span className="gradient-text">Intelligent</span> Automation
           </h2>
         </m.div>
 
@@ -31,14 +31,8 @@ export const PortfolioAbout = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="glass-card p-8 md:p-12"
         >
-          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            I'm a top-performing <span className="text-foreground font-medium">Marketing, Sales, and CRM Specialist</span> with extensive expertise in GoHighLevel automation and lead generation.
-          </p>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            I've successfully enhanced CRM setups and optimized marketing funnels for multiple clients, achieving significant ROI metrics and improved campaign performance through innovative workflow automations.
-          </p>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            By leveraging skills in CRM systems, landing page design, and omnichannel marketing, I create compelling, automated client solutions that streamline processes and enhance engagement strategies.
+            I build intelligent automation solutions that connect your tools, streamline your workflows, and free your team to focus on what matters. With expertise in <span className="text-foreground font-medium">n8n and API integrations</span>, I design systems that are reliable, scalable, and actually solve real business problems—not just tech for tech's sake.
           </p>
         </m.div>
       </div>

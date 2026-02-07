@@ -1,27 +1,47 @@
 import { m, useInView } from "@/components/LazyMotionProvider";
 import { useRef } from "react";
-import { Users, Zap, Globe, MapPin } from "lucide-react";
+import { GitBranch, Link2, Database, ShieldCheck, Webhook, Server, Plug, Gauge } from "lucide-react";
 
 const services = [
   {
-    icon: Users,
-    title: "Lead Generation",
-    description: "Strategic campaigns that attract and convert high-quality leads for your business.",
+    icon: GitBranch,
+    title: "n8n Workflow Architecture",
+    description: "Designing complex, multi-branch automations from scratch.",
   },
   {
-    icon: Zap,
-    title: "CRM Automations",
-    description: "GoHighLevel workflows that automate follow-ups, nurturing, and customer engagement.",
+    icon: Link2,
+    title: "API Integration & Orchestration",
+    description: "Connecting disparate systems seamlessly.",
   },
   {
-    icon: Globe,
-    title: "Web Design",
-    description: "Fast-loading, conversion-optimized websites and landing pages that drive results.",
+    icon: Database,
+    title: "Data Transformation & Processing",
+    description: "Clean, structure, and route data where it needs to go.",
   },
   {
-    icon: MapPin,
-    title: "Local SEO",
-    description: "Get found by local customers with optimized Google Business profiles and local rankings.",
+    icon: ShieldCheck,
+    title: "Error Handling & Reliability",
+    description: "Building workflows that gracefully handle edge cases.",
+  },
+  {
+    icon: Webhook,
+    title: "Webhook & Event-Driven Automation",
+    description: "Trigger actions in real-time across platforms.",
+  },
+  {
+    icon: Server,
+    title: "Database Operations",
+    description: "Read, write, and sync data across SQL and NoSQL systems.",
+  },
+  {
+    icon: Plug,
+    title: "Third-Party Service Connections",
+    description: "Integrating tools like Slack, Google Sheets, CRMs, and more.",
+  },
+  {
+    icon: Gauge,
+    title: "Workflow Optimization",
+    description: "Refactoring existing automations for speed and maintainability.",
   },
 ];
 
@@ -45,12 +65,9 @@ export const PortfolioServices = () => {
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             What I <span className="gradient-text">Do</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Full-stack marketing and automation solutions to help your business grow.
-          </p>
         </m.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
@@ -59,19 +76,19 @@ export const PortfolioServices = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 className="group"
               >
-                <div className="glass-card p-8 h-full hover:border-primary/30 transition-all duration-300">
+                <div className="glass-card p-6 h-full hover:border-primary/30 transition-all duration-300">
                   <m.div
-                    className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300"
+                    className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                   >
-                    <Icon className="w-7 h-7 text-primary" />
+                    <Icon className="w-6 h-6 text-primary" />
                   </m.div>
-                  <h3 className="font-display text-xl font-semibold mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                  <h3 className="font-display text-base font-semibold mb-2">{service.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
                 </div>
               </m.div>
             );
