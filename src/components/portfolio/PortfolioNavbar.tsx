@@ -49,7 +49,7 @@ export const PortfolioNavbar = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="font-display text-xl font-bold tracking-tight"
           >
-            <span className="gradient-text">SA</span>
+            <span className="gradient-text">Santiago Alvarado</span>
           </button>
 
           {/* Desktop Nav */}
