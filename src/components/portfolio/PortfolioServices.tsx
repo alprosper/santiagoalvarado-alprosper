@@ -5,43 +5,43 @@ import { GitBranch, Link2, Database, ShieldCheck, Webhook, Server, Plug, Gauge }
 const services = [
   {
     icon: GitBranch,
-    title: "n8n Workflow Architecture",
-    description: "Designing complex, multi-branch automations from scratch.",
+    title: "GoHighLevel Workflow Automation",
+    description: "Building advanced GHL workflows, triggers, and custom automations that drive leads through your pipeline on autopilot.",
   },
   {
     icon: Link2,
-    title: "API Integration & Orchestration",
-    description: "Connecting disparate systems seamlessly.",
+    title: "GHL API & Custom Integrations",
+    description: "Extending GoHighLevel with custom API integrations, webhooks, and third-party connections for limitless functionality.",
   },
   {
     icon: Database,
-    title: "Data Transformation & Processing",
-    description: "Clean, structure, and route data where it needs to go.",
+    title: "GHL Funnel & Pipeline Architecture",
+    description: "Designing high-converting funnels, multi-stage pipelines, and automated follow-up sequences inside GoHighLevel.",
   },
   {
     icon: ShieldCheck,
-    title: "Error Handling & Reliability",
-    description: "Building workflows that gracefully handle edge cases.",
+    title: "n8n + GHL Orchestration",
+    description: "Combining n8n's flexibility with GoHighLevel's power for complex, multi-system automations beyond native capabilities.",
   },
   {
     icon: Webhook,
-    title: "Webhook & Event-Driven Automation",
-    description: "Trigger actions in real-time across platforms.",
+    title: "Webhook & Event-Driven Triggers",
+    description: "Setting up real-time GHL triggers, inbound webhooks, and event-driven actions across your entire tech stack.",
   },
   {
     icon: Server,
-    title: "Database Operations",
-    description: "Read, write, and sync data across SQL and NoSQL systems.",
+    title: "GHL White-Label & SaaS Setup",
+    description: "Configuring white-label GHL instances, sub-account structures, and SaaS-mode setups for agencies.",
   },
   {
     icon: Plug,
-    title: "Third-Party Service Connections",
-    description: "Integrating tools like Slack, Google Sheets, CRMs, and more.",
+    title: "CRM Migration to GoHighLevel",
+    description: "Seamless migration of contacts, pipelines, and automations from other CRMs into GoHighLevel.",
   },
   {
     icon: Gauge,
-    title: "Workflow Optimization",
-    description: "Refactoring existing automations for speed and maintainability.",
+    title: "Workflow Optimization & Scaling",
+    description: "Auditing and refactoring existing GHL setups for speed, reliability, and scale as your business grows.",
   },
 ];
 
