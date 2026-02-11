@@ -1,6 +1,6 @@
 import { m, useInView } from "@/components/LazyMotionProvider";
 import { useRef } from "react";
-import { GitBranch, Link2, Database, ShieldCheck, Webhook, Server, Plug, Gauge } from "lucide-react";
+import { GitBranch, Link2, Database, ShieldCheck, Webhook, Server, Plug, Gauge, Code2, Layers, Megaphone } from "lucide-react";
 
 const services = [
   {
@@ -37,6 +37,21 @@ const services = [
     icon: Plug,
     title: "CRM Migration & Setup",
     description: "Seamless migration of contacts, pipelines, and automations into GoHighLevel or other platforms.",
+  },
+  {
+    icon: Code2,
+    title: "API & App Development",
+    description: "Building custom APIs, applications, and backend systems tailored to your business logic and integrations.",
+  },
+  {
+    icon: Layers,
+    title: "Customized SaaS Solutions",
+    description: "Developing bespoke SaaS platforms with custom features, user management, and scalable architecture.",
+  },
+  {
+    icon: Megaphone,
+    title: "SEO & Ad Management",
+    description: "Driving growth through SEO strategy, LSA, and paid campaigns across Facebook, Instagram, and Google Ads.",
   },
   {
     icon: Gauge,
