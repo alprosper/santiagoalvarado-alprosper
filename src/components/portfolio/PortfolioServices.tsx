@@ -9,6 +9,11 @@ const services = [
     description: "Building advanced GHL workflows, triggers, and custom automations that drive leads through your pipeline on autopilot.",
   },
   {
+    icon: ShieldCheck,
+    title: "GHL AI Agents & Automations",
+    description: "Deploying intelligent AI-powered agents inside GoHighLevel for conversational booking, lead qualification, and smart follow-ups.",
+  },
+  {
     icon: Link2,
     title: "GHL API & Custom Integrations",
     description: "Extending GoHighLevel with custom API integrations, webhooks, and third-party connections for limitless functionality.",
@@ -19,29 +24,24 @@ const services = [
     description: "Designing high-converting funnels, multi-stage pipelines, and automated follow-up sequences inside GoHighLevel.",
   },
   {
-    icon: ShieldCheck,
-    title: "n8n + GHL Orchestration",
-    description: "Combining n8n's flexibility with GoHighLevel's power for complex, multi-system automations beyond native capabilities.",
-  },
-  {
     icon: Webhook,
-    title: "Webhook & Event-Driven Triggers",
-    description: "Setting up real-time GHL triggers, inbound webhooks, and event-driven actions across your entire tech stack.",
+    title: "n8n Workflow Automations",
+    description: "Designing complex, multi-branch n8n automations that connect your entire tech stack beyond what native tools can do.",
   },
   {
     icon: Server,
-    title: "GHL White-Label & SaaS Setup",
-    description: "Configuring white-label GHL instances, sub-account structures, and SaaS-mode setups for agencies.",
+    title: "SaaS Website Development",
+    description: "Building modern, high-performance SaaS websites and landing pages that convert visitors into users.",
   },
   {
     icon: Plug,
-    title: "CRM Migration to GoHighLevel",
-    description: "Seamless migration of contacts, pipelines, and automations from other CRMs into GoHighLevel.",
+    title: "CRM Migration & Setup",
+    description: "Seamless migration of contacts, pipelines, and automations into GoHighLevel or other platforms.",
   },
   {
     icon: Gauge,
     title: "Workflow Optimization & Scaling",
-    description: "Auditing and refactoring existing GHL setups for speed, reliability, and scale as your business grows.",
+    description: "Auditing and refactoring existing automations for speed, reliability, and scale as your business grows.",
   },
 ];
 
