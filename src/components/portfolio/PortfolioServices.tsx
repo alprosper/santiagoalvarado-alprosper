@@ -77,10 +77,10 @@ export const PortfolioServices = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className="group"
+                whileHover={{ y: -8, transition: { duration: 0.25 } }}
+                className="group cursor-pointer"
               >
-                <div className="glass-card p-6 h-full hover:border-primary/30 transition-all duration-300">
+                <div className="glass-card p-6 h-full hover:border-primary/30 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.3)] transition-all duration-300">
                   <m.div
                     className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300"
                     whileHover={{ scale: 1.1, rotate: 5 }}
