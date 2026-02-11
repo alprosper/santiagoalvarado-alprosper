@@ -81,7 +81,7 @@ export const PortfolioGallery = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block px-4 py-2 rounded-full glass-card text-sm text-primary mb-6">
-            Gallery
+            Portfolio
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Recent <span className="gradient-text">Work</span>
