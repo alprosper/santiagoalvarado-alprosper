@@ -7,18 +7,26 @@ import { PortfolioServices } from "@/components/portfolio/PortfolioServices";
 import { PortfolioProjects } from "@/components/portfolio/PortfolioProjects";
 import { PortfolioContact } from "@/components/portfolio/PortfolioContact";
 import { PortfolioFooter } from "@/components/portfolio/PortfolioFooter";
+import { CursorGlow } from "@/components/CursorGlow";
+import { TechMarquee } from "@/components/TechMarquee";
+import { SectionDivider } from "@/components/SectionDivider";
 
 const Index = () => {
   return (
     <LazyMotionProvider>
       <div className="relative min-h-screen">
         <AnimatedBackground />
+        <CursorGlow />
         <PortfolioNavbar />
         <main>
           <PortfolioHero />
+          <SectionDivider />
           <PortfolioAbout />
+          <TechMarquee />
           <PortfolioServices />
+          <SectionDivider />
           <PortfolioProjects />
+          <SectionDivider />
           <PortfolioContact />
         </main>
         <PortfolioFooter />

@@ -23,9 +23,32 @@ export const PortfolioHero = () => {
             </m.div>
 
             {/* Name */}
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight mt-8">
-              I Turn Chaos Into <span className="gradient-text glow-text">Clockwork</span>
-            </h1>
+            <m.h1
+              className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight mt-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              {"I Turn Chaos Into ".split(" ").map((word, i) => (
+                <m.span
+                  key={i}
+                  className="inline-block mr-[0.3em]"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
+                >
+                  {word}
+                </m.span>
+              ))}
+              <m.span
+                className="gradient-text glow-text inline-block"
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.55, type: "spring", stiffness: 200 }}
+              >
+                Clockwork
+              </m.span>
+            </m.h1>
 
             {/* Tagline */}
             <m.p
