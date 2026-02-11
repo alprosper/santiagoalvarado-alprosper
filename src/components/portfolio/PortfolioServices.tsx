@@ -130,7 +130,7 @@ export const PortfolioServices = () => {
                   <h3 className="font-display text-base font-semibold mb-2">{service.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
                   <span className="inline-block mt-3 text-xs text-muted-foreground group-hover:text-primary transition-colors">
-                    View details →
+                    View Examples →
                   </span>
                 </div>
               </m.div>
