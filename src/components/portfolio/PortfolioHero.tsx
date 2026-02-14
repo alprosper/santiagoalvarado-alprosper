@@ -134,9 +134,17 @@ export const PortfolioHero = () => {
                       alt="Santiago Alvarado"
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <Play className="w-16 h-16 text-white fill-white/80" />
+                    {/* Always-visible play button */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/35 transition-all duration-300">
+                      <div className="relative flex items-center justify-center">
+                        {/* Pulsing ring */}
+                        <span className="absolute w-20 h-20 rounded-full border-2 border-white/60 animate-ping" style={{ animationDuration: '2s' }} />
+                        <div className="w-16 h-16 rounded-full bg-white/90 group-hover:bg-white group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-lg">
+                          <Play className="w-7 h-7 text-black fill-black ml-1" />
+                        </div>
+                      </div>
                     </div>
+                    <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs font-medium text-white bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">Watch Video</span>
                   </button>
                 )}
 
