@@ -131,7 +131,7 @@ export const PortfolioHero = () => {
                   LinkedIn
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/alprosperai/"
+                  href="https://www.youtube.com/@AlprosperAI"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-card px-4 py-2 rounded-full flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all duration-300"
