@@ -2,7 +2,7 @@ import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { LazyMotionProvider } from "@/components/LazyMotionProvider";
 import { PortfolioNavbar } from "@/components/portfolio/PortfolioNavbar";
 import { PortfolioHero } from "@/components/portfolio/PortfolioHero";
-import { PortfolioAbout } from "@/components/portfolio/PortfolioAbout";
+
 import { PortfolioServices } from "@/components/portfolio/PortfolioServices";
 import { PortfolioGallery } from "@/components/portfolio/PortfolioGallery";
 import { PortfolioContact } from "@/components/portfolio/PortfolioContact";
@@ -20,7 +20,7 @@ const Index = () => {
         <PortfolioNavbar />
         <main>
           <PortfolioHero />
-          <PortfolioAbout />
+          
           <PortfolioServices />
           <TechMarquee />
           <PortfolioGallery />
