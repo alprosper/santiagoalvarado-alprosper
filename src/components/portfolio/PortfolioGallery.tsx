@@ -9,6 +9,11 @@ import ghlWorkflow4 from "@/assets/portfolio/ghl-workflow-4.png";
 import appDev1 from "@/assets/portfolio/app-dev-1.png";
 import appDev2 from "@/assets/portfolio/app-dev-2.png";
 import appDev3 from "@/assets/portfolio/app-dev-3.png";
+import n8nWorkflow1 from "@/assets/portfolio/n8n-workflow-1.png";
+import n8nWorkflow2 from "@/assets/portfolio/n8n-workflow-2.png";
+import n8nWorkflow3 from "@/assets/portfolio/n8n-workflow-3.png";
+import n8nWorkflow4 from "@/assets/portfolio/n8n-workflow-4.png";
+import n8nWorkflow5 from "@/assets/portfolio/n8n-workflow-5.png";
 
 type GalleryItem = {
   title: string;
@@ -42,7 +47,13 @@ const galleryItems: GalleryItem[] = [
   {
     title: "n8n Workflow Orchestration",
     description: "Complex multi-service automations with data transformations, conditional routing, and real-time event processing.",
-    images: [{ src: "https://placehold.co/800x500/1a1a2e/f97316?text=n8n+Workflow", caption: "" }],
+    images: [
+      { src: n8nWorkflow1, caption: "An AI Agent for quick executions and lookups via SMS" },
+      { src: n8nWorkflow2, caption: "An AI Agent that reports on ongoing/active tasks and internal conversations from various tools to provide a high-level view of operations" },
+      { src: n8nWorkflow3, caption: "An automation that will check for daily webinars completed and will provide the reports you need via Email" },
+      { src: n8nWorkflow4, caption: "An AI Agent that can be prompted via SMS to review and report on various Google Sheets" },
+      { src: n8nWorkflow5, caption: "An automation to monitor RSS feeds for specific topics and/or keywords, and will send you an SMS alert when the topic is found" },
+    ],
     tag: "Automation",
   },
   {
