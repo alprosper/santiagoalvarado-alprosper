@@ -92,35 +92,5 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- Deferred chat widget loading - loads after 3s or on scroll -->
-    <script>
-      (function() {
-        var chatLoaded = false;
-        
-        function loadChatWidget() {
-          if (chatLoaded) return;
-          chatLoaded = true;
-          
-          var script = document.createElement('script');
-          script.src = 'https://beta.leadconnectorhq.com/loader.js';
-          script.setAttribute('data-resources-url', 'https://beta.leadconnectorhq.com/chat-widget/loader.js');
-          script.setAttribute('data-widget-id', '66839376dd5856e4acbbe335');
-          document.body.appendChild(script);
-          
-          // Clean up listeners
-          window.removeEventListener('scroll', loadChatWidget);
-          window.removeEventListener('mousemove', loadChatWidget);
-          window.removeEventListener('touchstart', loadChatWidget);
-        }
-        
-        // Load after 3 seconds
-        setTimeout(loadChatWidget, 3000);
-        
-        // Or load on user interaction
-        window.addEventListener('scroll', loadChatWidget, { once: true, passive: true });
-        window.addEventListener('mousemove', loadChatWidget, { once: true, passive: true });
-        window.addEventListener('touchstart', loadChatWidget, { once: true, passive: true });
-      })();
-    </script>
   </body>
 </html>
