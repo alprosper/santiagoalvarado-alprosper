@@ -116,7 +116,7 @@ export const PortfolioContact = ({ embedded }: { embedded?: boolean }) => {
     </m.div>
   );
 
-  if (embedded) return <div id="contact">{inner}</div>;
+  if (embedded) return <div id="contact" className="glass-card p-8 md:p-10 glow-effect">{inner}</div>;
 
   return (
     <section id="contact" className="py-24 px-6 relative">
