@@ -24,6 +24,18 @@ type GalleryItem = {
 
 const galleryItems: GalleryItem[] = [
   {
+    title: "n8n Workflow Orchestration",
+    description: "Complex multi-service automations with data transformations, conditional routing, and real-time event processing.",
+    images: [
+      { src: n8nWorkflow1, caption: "An AI Agent for quick executions and lookups via SMS" },
+      { src: n8nWorkflow2, caption: "An AI Agent that reports on ongoing/active tasks and internal conversations from various tools to provide a high-level view of operations" },
+      { src: n8nWorkflow3, caption: "An automation that will check for daily webinars completed and will provide the reports you need via Email" },
+      { src: n8nWorkflow4, caption: "An AI Agent that can be prompted via SMS to review and report on various Google Sheets" },
+      { src: n8nWorkflow5, caption: "An automation to monitor RSS feeds for specific topics and/or keywords, and will send you an SMS alert when the topic is found" },
+    ],
+    tag: "Automation",
+  },
+  {
     title: "GHL Workflow Automation",
     description: "Advanced multi-step workflows with conditional logic, automated lead nurturing, and pipeline management inside GoHighLevel.",
     images: [
@@ -43,18 +55,6 @@ const galleryItems: GalleryItem[] = [
       { src: appDev3, caption: "Custom tools that connect to GHL" },
     ],
     tag: "Development",
-  },
-  {
-    title: "n8n Workflow Orchestration",
-    description: "Complex multi-service automations with data transformations, conditional routing, and real-time event processing.",
-    images: [
-      { src: n8nWorkflow1, caption: "An AI Agent for quick executions and lookups via SMS" },
-      { src: n8nWorkflow2, caption: "An AI Agent that reports on ongoing/active tasks and internal conversations from various tools to provide a high-level view of operations" },
-      { src: n8nWorkflow3, caption: "An automation that will check for daily webinars completed and will provide the reports you need via Email" },
-      { src: n8nWorkflow4, caption: "An AI Agent that can be prompted via SMS to review and report on various Google Sheets" },
-      { src: n8nWorkflow5, caption: "An automation to monitor RSS feeds for specific topics and/or keywords, and will send you an SMS alert when the topic is found" },
-    ],
-    tag: "Automation",
   },
   {
     title: "SaaS Marketing Website",
