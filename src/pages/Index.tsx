@@ -22,8 +22,8 @@ const Index = () => {
           <PortfolioHero />
           <SectionDivider />
           <PortfolioAbout />
-          <TechMarquee />
           <PortfolioServices />
+          <TechMarquee />
           <PortfolioGallery />
           <SectionDivider />
           <PortfolioContact />
