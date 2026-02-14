@@ -40,18 +40,6 @@ const galleryItems: GalleryItem[] = [
     tag: "Development",
   },
   {
-    title: "Custom API Integration",
-    description: "Seamless connections between GoHighLevel and third-party tools with proper authentication, error handling, and logging.",
-    images: [{ src: "https://placehold.co/800x500/1a1a2e/f97316?text=API+Integration", caption: "" }],
-    tag: "Integration",
-  },
-  {
-    title: "Funnel & Pipeline System",
-    description: "End-to-end funnel architecture with multi-stage pipelines, automated transitions, and conversion tracking.",
-    images: [{ src: "https://placehold.co/800x500/1a1a2e/f97316?text=Funnel+Pipeline", caption: "" }],
-    tag: "Funnels",
-  },
-  {
     title: "n8n Workflow Orchestration",
     description: "Complex multi-service automations with data transformations, conditional routing, and real-time event processing.",
     images: [{ src: "https://placehold.co/800x500/1a1a2e/f97316?text=n8n+Workflow", caption: "" }],
