@@ -10,6 +10,7 @@ import { PortfolioFooter } from "@/components/portfolio/PortfolioFooter";
 import { CursorGlow } from "@/components/CursorGlow";
 import { TechMarquee } from "@/components/TechMarquee";
 import { SectionDivider } from "@/components/SectionDivider";
+import { ScrollIndicator } from "@/components/ScrollIndicator";
 
 const Index = () => {
   return (
@@ -30,6 +31,7 @@ const Index = () => {
           </section>
         </main>
         <PortfolioFooter />
+        <ScrollIndicator />
       </div>
     </LazyMotionProvider>
   );
