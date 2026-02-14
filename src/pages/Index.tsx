@@ -22,9 +22,12 @@ const Index = () => {
           <PortfolioHero />
           <TechMarquee />
           <PortfolioGallery />
-          <PortfolioServices />
-          <SectionDivider />
-          <PortfolioContact />
+          <section className="py-24 px-6 relative">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+              <PortfolioServices embedded />
+              <PortfolioContact embedded />
+            </div>
+          </section>
         </main>
         <PortfolioFooter />
       </div>
