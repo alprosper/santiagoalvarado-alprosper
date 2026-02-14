@@ -74,41 +74,7 @@
       .bg-secondary{background-color:hsl(var(--secondary))}
     </style>
 
-    <!-- Defer non-critical CSS - Vite injects CSS dynamically, this script handles it -->
-    <script>
-      (function(){
-        function makeAsync(link) {
-          if (!link || link.getAttribute('data-critical') === 'true') return;
-          var href = link.getAttribute('href');
-          if (!href || !href.includes('.css')) return;
-          
-          // Convert to preload pattern
-          link.rel = 'preload';
-          link.as = 'style';
-          link.onload = function() { this.onload = null; this.rel = 'stylesheet'; };
-          
-          // Add noscript fallback
-          var noscript = document.createElement('noscript');
-          var fallback = document.createElement('link');
-          fallback.rel = 'stylesheet';
-          fallback.href = href;
-          noscript.appendChild(fallback);
-          link.parentNode.insertBefore(noscript, link.nextSibling);
-        }
-        
-        // Watch for dynamically added stylesheets (Vite injects CSS)
-        var observer = new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
-            mutation.addedNodes.forEach(function(node) {
-              if (node.tagName === 'LINK' && node.rel === 'stylesheet') {
-                makeAsync(node);
-              }
-            });
-          });
-        });
-        observer.observe(document.head, { childList: true });
-      })();
-    </script>
+    <!-- CSS is loaded normally by Vite -->
 
     <!-- DNS Prefetch for faster external resources -->
     <link rel="dns-prefetch" href="https://beta.leadconnectorhq.com" />
