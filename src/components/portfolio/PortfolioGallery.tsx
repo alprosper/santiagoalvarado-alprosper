@@ -1,7 +1,7 @@
 import { m, useInView } from "@/components/LazyMotionProvider";
 import { useRef, useState } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
 const galleryItems = [
   {
@@ -69,13 +69,13 @@ export const PortfolioGallery = () => {
   const selected = selectedIndex !== null ? galleryItems[selectedIndex] : null;
 
   return (
-    <section className="py-24 px-6 relative">
+    <section id="projects" className="py-24 px-6 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent" />
 
-      <div className="max-w-7xl mx-auto relative">
+      <div className="max-w-6xl mx-auto relative">
         <m.div
           ref={ref}
-          className="text-center mb-14"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
@@ -91,47 +91,106 @@ export const PortfolioGallery = () => {
           </p>
         </m.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {galleryItems.map((item, index) => (
-            <m.div
-              key={item.title}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="group cursor-pointer"
-              onClick={() => setSelectedIndex(index)}
-            >
-              <div className="glass-card overflow-hidden hover:border-primary/30 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.3)] transition-all duration-300">
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-primary/20 backdrop-blur-sm text-xs text-primary font-medium">
+        {/* Alternating rows */}
+        <div className="flex flex-col gap-16">
+          {galleryItems.map((item, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <m.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className={`grid md:grid-cols-2 gap-8 items-center ${
+                  !isEven ? "md:direction-rtl" : ""
+                }`}
+              >
+                {/* Screenshot */}
+                <div
+                  className={`group relative cursor-pointer ${
+                    !isEven ? "md:order-2" : "md:order-1"
+                  }`}
+                  onClick={() => setSelectedIndex(index)}
+                >
+                  <div className="glass-card overflow-hidden hover:border-primary/30 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.3)] transition-all duration-300">
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center">
+                          <ZoomIn className="w-5 h-5 text-foreground" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Thumbnail navigation dots */}
+                  <div className="flex items-center justify-center gap-2 mt-4">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const prev = (index - 1 + galleryItems.length) % galleryItems.length;
+                        document.getElementById(`project-${prev}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+                      }}
+                      className="w-8 h-8 rounded-full glass-card flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all"
+                      aria-label="Previous project"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <span className="text-xs text-muted-foreground tabular-nums">
+                      {index + 1} / {galleryItems.length}
+                    </span>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const next = (index + 1) % galleryItems.length;
+                        document.getElementById(`project-${next}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+                      }}
+                      className="w-8 h-8 rounded-full glass-card flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all"
+                      aria-label="Next project"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div
+                  id={`project-${index}`}
+                  className={`flex flex-col justify-center ${
+                    !isEven ? "md:order-1" : "md:order-2"
+                  }`}
+                >
+                  <span className="inline-block w-fit px-3 py-1 rounded-full bg-primary/10 text-xs text-primary font-medium mb-4">
                     {item.tag}
                   </span>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-display text-sm font-semibold mb-1.5 group-hover:text-primary transition-colors">
+                  <h3 className="font-display text-xl md:text-2xl font-bold mb-3 text-foreground">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                  <p className="text-muted-foreground leading-relaxed">
                     {item.description}
                   </p>
+                  <button
+                    onClick={() => setSelectedIndex(index)}
+                    className="mt-5 inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors group/link"
+                  >
+                    View full screenshot
+                    <ZoomIn className="w-4 h-4 group-hover/link:scale-110 transition-transform" />
+                  </button>
                 </div>
-              </div>
-            </m.div>
-          ))}
+              </m.div>
+            );
+          })}
         </div>
       </div>
 
       {/* Lightbox Modal */}
       <Dialog open={selectedIndex !== null} onOpenChange={() => setSelectedIndex(null)}>
-        <DialogContent className="max-w-4xl w-[95vw] glass-card border-border/30 p-0 overflow-hidden">
+        <DialogContent className="max-w-5xl w-[95vw] glass-card border-border/30 p-0 overflow-hidden">
           <DialogTitle className="sr-only">
             {selected?.title ?? "Gallery Item"}
           </DialogTitle>
