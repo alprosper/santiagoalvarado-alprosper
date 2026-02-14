@@ -11,9 +11,6 @@ export const TechMarquee = () => {
 
   return (
     <div className="relative py-10 overflow-hidden">
-      {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-background to-transparent" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-background to-transparent" />
 
       <div className="flex animate-marquee gap-6 w-max">
         {doubled.map((item, i) => (
