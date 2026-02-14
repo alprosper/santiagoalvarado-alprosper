@@ -37,12 +37,9 @@ export const PortfolioNavbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="max-w-6xl mx-auto px-6">
-        <nav
-          className={`flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-300 ${
-            isScrolled ? "glass-card" : ""
-          }`}
-        >
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <nav className="flex items-center justify-between px-5 md:px-8 py-3 rounded-2xl glass-card transition-all duration-300">
+
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
