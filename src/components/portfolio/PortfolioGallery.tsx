@@ -2,42 +2,52 @@ import { m, useInView } from "@/components/LazyMotionProvider";
 import { useRef, useState } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import ghlWorkflow3 from "@/assets/portfolio/ghl-workflow-3.jpg";
 
-const galleryItems = [
+type GalleryItem = {
+  title: string;
+  description: string;
+  images: { src: string; caption: string }[];
+  tag: string;
+};
+
+const galleryItems: GalleryItem[] = [
   {
     title: "GHL Workflow Automation",
     description: "Advanced multi-step workflows with conditional logic, automated lead nurturing, and pipeline management inside GoHighLevel.",
-    image: "https://placehold.co/800x500/1a1a2e/f97316?text=GHL+Workflow",
+    images: [
+      { src: ghlWorkflow3, caption: "Booking bot activation workflow for qualifying and booking new leads" },
+    ],
     tag: "Automation",
   },
   {
     title: "AI Agent Deployment",
     description: "Intelligent conversational agents for 24/7 lead qualification, appointment booking, and smart follow-up sequences.",
-    image: "https://placehold.co/800x500/1a1a2e/f97316?text=AI+Agent",
+    images: [{ src: "https://placehold.co/800x500/1a1a2e/f97316?text=AI+Agent", caption: "" }],
     tag: "AI",
   },
   {
     title: "Custom API Integration",
     description: "Seamless connections between GoHighLevel and third-party tools with proper authentication, error handling, and logging.",
-    image: "https://placehold.co/800x500/1a1a2e/f97316?text=API+Integration",
+    images: [{ src: "https://placehold.co/800x500/1a1a2e/f97316?text=API+Integration", caption: "" }],
     tag: "Integration",
   },
   {
     title: "Funnel & Pipeline System",
     description: "End-to-end funnel architecture with multi-stage pipelines, automated transitions, and conversion tracking.",
-    image: "https://placehold.co/800x500/1a1a2e/f97316?text=Funnel+Pipeline",
+    images: [{ src: "https://placehold.co/800x500/1a1a2e/f97316?text=Funnel+Pipeline", caption: "" }],
     tag: "Funnels",
   },
   {
     title: "n8n Workflow Orchestration",
     description: "Complex multi-service automations with data transformations, conditional routing, and real-time event processing.",
-    image: "https://placehold.co/800x500/1a1a2e/f97316?text=n8n+Workflow",
+    images: [{ src: "https://placehold.co/800x500/1a1a2e/f97316?text=n8n+Workflow", caption: "" }],
     tag: "Automation",
   },
   {
     title: "SaaS Marketing Website",
     description: "High-performance marketing sites with mobile-first design, SEO optimization, and analytics integration.",
-    image: "https://placehold.co/800x500/1a1a2e/f97316?text=SaaS+Website",
+    images: [{ src: "https://placehold.co/800x500/1a1a2e/f97316?text=SaaS+Website", caption: "" }],
     tag: "Development",
   },
 ];
@@ -104,7 +114,7 @@ export const PortfolioGallery = () => {
                   <div className="glass-card overflow-hidden hover:border-primary/30 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.3)] transition-all duration-300">
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <img
-                        src={item.image}
+                        src={item.images[0].src}
                         alt={item.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
@@ -186,7 +196,7 @@ export const PortfolioGallery = () => {
             <div className="relative">
               <div className="w-full aspect-video bg-secondary/50 overflow-hidden">
                 <img
-                  src={selected.image}
+                  src={selected.images[0].src}
                   alt={selected.title}
                   className="w-full h-full object-cover"
                 />
