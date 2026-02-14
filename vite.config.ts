@@ -39,7 +39,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     minify: 'esbuild',
     target: 'es2020',
-    cssCodeSplit: true,
+    cssCodeSplit: false,
     cssMinify: true,
     modulePreload: {
       polyfill: true,
