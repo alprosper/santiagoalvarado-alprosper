@@ -6,6 +6,9 @@ import ghlWorkflow1 from "@/assets/portfolio/ghl-workflow-1.png";
 import ghlWorkflow2 from "@/assets/portfolio/ghl-workflow-2.png";
 import ghlWorkflow3 from "@/assets/portfolio/ghl-workflow-3.jpg";
 import ghlWorkflow4 from "@/assets/portfolio/ghl-workflow-4.png";
+import appDev1 from "@/assets/portfolio/app-dev-1.png";
+import appDev2 from "@/assets/portfolio/app-dev-2.png";
+import appDev3 from "@/assets/portfolio/app-dev-3.png";
 
 type GalleryItem = {
   title: string;
@@ -27,10 +30,14 @@ const galleryItems: GalleryItem[] = [
     tag: "Automation",
   },
   {
-    title: "AI Agent Deployment",
-    description: "Intelligent conversational agents for 24/7 lead qualification, appointment booking, and smart follow-up sequences.",
-    images: [{ src: "https://placehold.co/800x500/1a1a2e/f97316?text=AI+Agent", caption: "" }],
-    tag: "AI",
+    title: "API/App Development",
+    description: "Custom applications, portals, and tools built to centralize workflows and connect seamlessly with platforms like GoHighLevel.",
+    images: [
+      { src: appDev1, caption: "Login screen for custom tools/apps" },
+      { src: appDev2, caption: "Custom portals that connect to other applications to help centralize usage" },
+      { src: appDev3, caption: "Custom tools that connect to GHL" },
+    ],
+    tag: "Development",
   },
   {
     title: "Custom API Integration",
