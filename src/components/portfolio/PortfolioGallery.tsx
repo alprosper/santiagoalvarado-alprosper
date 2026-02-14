@@ -17,11 +17,13 @@ import n8nWorkflow2 from "@/assets/portfolio/n8n-workflow-2.png";
 import n8nWorkflow3 from "@/assets/portfolio/n8n-workflow-3.png";
 import n8nWorkflow4 from "@/assets/portfolio/n8n-workflow-4.png";
 import n8nWorkflow5 from "@/assets/portfolio/n8n-workflow-5.png";
+import websiteDevThumb from "@/assets/portfolio/website-dev-thumb.png";
 
 type GalleryItem = {
   title: string;
   description: string;
   images: { src: string; caption: string }[];
+  thumbnail?: string;
   tag: string;
 };
 
@@ -62,6 +64,7 @@ const galleryItems: GalleryItem[] = [
   {
     title: "Website Development",
     description: "High-performance marketing sites with mobile-first design, SEO optimization, and analytics integration.",
+    thumbnail: websiteDevThumb,
     images: [
       { src: websiteDev1, caption: "alprosper.com — SaaS marketing website with analytics dashboard and strategy call booking" },
       { src: websiteDev2, caption: "qlinks.bio — Link-in-bio platform with pricing tiers and audience engagement tools" },
@@ -141,7 +144,7 @@ export const PortfolioGallery = () => {
                   <div className="glass-card overflow-hidden hover:border-primary/30 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.3)] transition-all duration-300">
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <img
-                        src={item.images[0].src}
+                        src={item.thumbnail || item.images[0].src}
                         alt={item.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
