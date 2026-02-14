@@ -40,18 +40,6 @@ const galleryItems = [
     image: "https://placehold.co/800x500/1a1a2e/f97316?text=SaaS+Website",
     tag: "Development",
   },
-  {
-    title: "CRM Data Migration",
-    description: "Full migration from legacy CRMs—field mapping, data deduplication, automation rebuilds, and zero-downtime cutover.",
-    image: "https://placehold.co/800x500/1a1a2e/f97316?text=CRM+Migration",
-    tag: "Migration",
-  },
-  {
-    title: "Custom Dashboard App",
-    description: "Bespoke dashboards and internal tools with real-time data, role-based access, and seamless stack integration.",
-    image: "https://placehold.co/800x500/1a1a2e/f97316?text=Custom+Dashboard",
-    tag: "Development",
-  },
 ];
 
 export const PortfolioGallery = () => {
