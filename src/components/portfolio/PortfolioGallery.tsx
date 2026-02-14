@@ -79,6 +79,7 @@ export const PortfolioGallery = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [cardImageIndices, setCardImageIndices] = useState<Record<number, number>>({});
 
   const goNext = () => {
     if (selectedIndex !== null) {
@@ -144,7 +145,7 @@ export const PortfolioGallery = () => {
                   <div className="glass-card overflow-hidden hover:border-primary/30 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.3)] transition-all duration-300">
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <img
-                        src={item.thumbnail || item.images[0].src}
+                        src={item.images[cardImageIndices[index] || 0]?.src || item.thumbnail || item.images[0].src}
                         alt={item.title}
                         className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
@@ -161,34 +162,40 @@ export const PortfolioGallery = () => {
                     </div>
                   </div>
 
-                  {/* Thumbnail navigation dots */}
-                  <div className="flex items-center justify-center gap-2 mt-4">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        const prev = (index - 1 + galleryItems.length) % galleryItems.length;
-                        document.getElementById(`project-${prev}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
-                      }}
-                      className="w-8 h-8 rounded-full glass-card flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all"
-                      aria-label="Previous project"
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                    </button>
-                    <span className="text-xs text-muted-foreground tabular-nums">
-                      {index + 1} / {galleryItems.length}
-                    </span>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        const next = (index + 1) % galleryItems.length;
-                        document.getElementById(`project-${next}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
-                      }}
-                      className="w-8 h-8 rounded-full glass-card flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all"
-                      aria-label="Next project"
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </div>
+                  {/* Image navigation arrows */}
+                  {item.images.length > 1 && (
+                    <div className="flex items-center justify-center gap-2 mt-4">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setCardImageIndices(prev => {
+                            const current = prev[index] || 0;
+                            return { ...prev, [index]: (current - 1 + item.images.length) % item.images.length };
+                          });
+                        }}
+                        className="w-8 h-8 rounded-full glass-card flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all"
+                        aria-label="Previous image"
+                      >
+                        <ChevronLeft className="w-4 h-4" />
+                      </button>
+                      <span className="text-xs text-muted-foreground tabular-nums">
+                        {(cardImageIndices[index] || 0) + 1} / {item.images.length}
+                      </span>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setCardImageIndices(prev => {
+                            const current = prev[index] || 0;
+                            return { ...prev, [index]: (current + 1) % item.images.length };
+                          });
+                        }}
+                        className="w-8 h-8 rounded-full glass-card flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all"
+                        aria-label="Next image"
+                      >
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  )}
                 </div>
 
                 {/* Description */}
