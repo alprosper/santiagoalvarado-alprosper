@@ -135,12 +135,11 @@ export const PortfolioHero = () => {
                       className="w-full h-full object-cover"
                     />
                     {/* Always-visible play button */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/35 transition-all duration-300">
+                    <div className="absolute inset-0 flex items-center justify-center bg-transparent group-hover:bg-black/25 transition-all duration-300">
                       <div className="relative flex items-center justify-center">
-                        {/* Pulsing ring */}
-                        <span className="absolute w-20 h-20 rounded-full border-2 border-white/60 animate-ping" style={{ animationDuration: '2s' }} />
-                        <div className="w-16 h-16 rounded-full bg-white/90 group-hover:bg-white group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-lg">
-                          <Play className="w-7 h-7 text-black fill-black ml-1" />
+                        <span className="absolute w-20 h-20 rounded-full border-2 border-white/40 animate-ping" style={{ animationDuration: '2s' }} />
+                        <div className="w-16 h-16 rounded-full bg-white/60 group-hover:bg-white/85 group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-lg">
+                          <Play className="w-7 h-7 text-black/70 fill-black/70 ml-1" />
                         </div>
                       </div>
                     </div>
