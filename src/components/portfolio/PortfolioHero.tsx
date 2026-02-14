@@ -22,7 +22,7 @@ export const PortfolioHero = () => {
   };
 
   return (
-    <section className="relative pt-24 px-6 pb-4 flex-col flex items-center justify-start">
+    <section id="hero" className="relative pt-24 px-6 pb-4 flex-col flex items-center justify-start">
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center py-[40px]">
           {/* Left Content */}
