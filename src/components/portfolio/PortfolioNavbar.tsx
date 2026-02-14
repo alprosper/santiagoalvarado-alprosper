@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { m } from "@/components/LazyMotionProvider";
+import { m, AnimatePresence } from "@/components/LazyMotionProvider";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -92,33 +92,46 @@ export const PortfolioNavbar = () => {
         </nav>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <m.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden glass-card mt-2 p-4 rounded-2xl"
-          >
-            <div className="flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-left p-3 rounded-xl hover:bg-secondary transition-colors"
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <m.div
+              key="mobile-menu"
+              initial={{ opacity: 0, y: -10, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.98 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="md:hidden glass-card mt-2 p-4 rounded-2xl"
+            >
+              <div className="flex flex-col gap-2">
+                {navLinks.map((link, i) => (
+                  <m.button
+                    key={link.label}
+                    onClick={() => scrollToSection(link.href)}
+                    className="text-left p-3 rounded-xl hover:bg-secondary transition-colors"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2, delay: i * 0.05 }}
+                  >
+                    {link.label}
+                  </m.button>
+                ))}
+                <m.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2, delay: 0.15 }}
                 >
-                  {link.label}
-                </button>
-              ))}
-              <Button
-                variant="glow"
-                className="mt-2"
-                onClick={() => scrollToSection("#contact")}
-              >
-                Get in Touch
-              </Button>
-            </div>
-          </m.div>
-        )}
+                  <Button
+                    variant="glow"
+                    className="mt-2 w-full"
+                    onClick={() => scrollToSection("#contact")}
+                  >
+                    Get in Touch
+                  </Button>
+                </m.div>
+              </div>
+            </m.div>
+          )}
+        </AnimatePresence>
       </div>
     </m.header>
   );
