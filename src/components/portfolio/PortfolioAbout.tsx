@@ -7,7 +7,7 @@ export const PortfolioAbout = () => {
 
   return (
     <section id="about" className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] via-primary/[0.06] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent" />
       <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/[0.04] blur-3xl" />
       <div className="absolute -right-40 top-1/3 w-[400px] h-[400px] rounded-full bg-primary/[0.03] blur-3xl" />
       
