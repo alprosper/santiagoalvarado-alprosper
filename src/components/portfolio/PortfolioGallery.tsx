@@ -6,22 +6,17 @@ import ghlWorkflow1 from "@/assets/portfolio/ghl-workflow-1.png";
 import ghlWorkflow2 from "@/assets/portfolio/ghl-workflow-2.png";
 import ghlWorkflow3 from "@/assets/portfolio/ghl-workflow-3.jpg";
 import ghlWorkflow4 from "@/assets/portfolio/ghl-workflow-4.png";
-import ghlLogo from "@/assets/portfolio/ghl-logo.webp";
 
 type GalleryItem = {
   title: string;
   description: string;
   images: { src: string; caption: string }[];
   tag: string;
-  logo?: React.ReactNode;
 };
 
 const galleryItems: GalleryItem[] = [
   {
     title: "GHL Workflow Automation",
-    logo: (
-      <img src={ghlLogo} alt="GoHighLevel" className="w-7 h-7 inline-block mr-2 -mt-1 object-contain" />
-    ),
     description: "Advanced multi-step workflows with conditional logic, automated lead nurturing, and pipeline management inside GoHighLevel.",
     images: [
       { src: ghlWorkflow1, caption: "OpenAI-powered call summary and action items for the assigned user" },
@@ -191,7 +186,7 @@ export const PortfolioGallery = () => {
                     {item.tag}
                   </span>
                   <h3 className="font-display text-xl md:text-2xl font-bold mb-3 text-foreground">
-                    {item.logo}{item.title}
+                    {item.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
                     {item.description}
