@@ -2,7 +2,10 @@ import { m, useInView } from "@/components/LazyMotionProvider";
 import { useRef, useState } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import ghlWorkflow1 from "@/assets/portfolio/ghl-workflow-1.png";
+import ghlWorkflow2 from "@/assets/portfolio/ghl-workflow-2.png";
 import ghlWorkflow3 from "@/assets/portfolio/ghl-workflow-3.jpg";
+import ghlWorkflow4 from "@/assets/portfolio/ghl-workflow-4.png";
 
 type GalleryItem = {
   title: string;
@@ -16,7 +19,10 @@ const galleryItems: GalleryItem[] = [
     title: "GHL Workflow Automation",
     description: "Advanced multi-step workflows with conditional logic, automated lead nurturing, and pipeline management inside GoHighLevel.",
     images: [
+      { src: ghlWorkflow1, caption: "OpenAI-powered call summary and action items for the assigned user" },
+      { src: ghlWorkflow2, caption: "SMS-to-AI Agent automation for processing responses and alerting the team" },
       { src: ghlWorkflow3, caption: "Booking bot activation workflow for qualifying and booking new leads" },
+      { src: ghlWorkflow4, caption: "Standard folder creation and organization for workflows" },
     ],
     tag: "Automation",
   },
@@ -56,15 +62,23 @@ export const PortfolioGallery = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const goNext = () => {
-    if (selectedIndex !== null) setSelectedIndex((selectedIndex + 1) % galleryItems.length);
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex + 1) % galleryItems.length);
+      setSelectedImageIndex(0);
+    }
   };
   const goPrev = () => {
-    if (selectedIndex !== null) setSelectedIndex((selectedIndex - 1 + galleryItems.length) % galleryItems.length);
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex - 1 + galleryItems.length) % galleryItems.length);
+      setSelectedImageIndex(0);
+    }
   };
 
   const selected = selectedIndex !== null ? galleryItems[selectedIndex] : null;
+  const currentImage = selected ? selected.images[selectedImageIndex] : null;
 
   return (
     <section id="projects" className="py-24 px-6 relative">
@@ -109,7 +123,7 @@ export const PortfolioGallery = () => {
                   className={`group relative cursor-pointer ${
                     !isEven ? "md:order-2" : "md:order-1"
                   }`}
-                  onClick={() => setSelectedIndex(index)}
+                  onClick={() => { setSelectedIndex(index); setSelectedImageIndex(0); }}
                 >
                   <div className="glass-card overflow-hidden hover:border-primary/30 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.3)] transition-all duration-300">
                     <div className="relative aspect-[16/10] overflow-hidden">
@@ -123,6 +137,11 @@ export const PortfolioGallery = () => {
                           <ZoomIn className="w-5 h-5 text-foreground" />
                         </div>
                       </div>
+                      {item.images.length > 1 && (
+                        <span className="absolute top-3 right-3 px-2 py-1 rounded-full bg-background/80 backdrop-blur-sm text-xs text-foreground font-medium">
+                          {item.images.length} images
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -173,7 +192,7 @@ export const PortfolioGallery = () => {
                     {item.description}
                   </p>
                   <button
-                    onClick={() => setSelectedIndex(index)}
+                    onClick={() => { setSelectedIndex(index); setSelectedImageIndex(0); }}
                     className="mt-5 inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors group/link"
                   >
                     View full screenshot
@@ -186,51 +205,92 @@ export const PortfolioGallery = () => {
         </div>
       </div>
 
-      {/* Lightbox Modal */}
-      <Dialog open={selectedIndex !== null} onOpenChange={() => setSelectedIndex(null)}>
-        <DialogContent className="max-w-5xl w-[95vw] glass-card border-border/30 p-0 overflow-hidden">
+      {/* Lightbox Modal — image left, description right */}
+      <Dialog
+        open={selectedIndex !== null}
+        onOpenChange={() => setSelectedIndex(null)}
+      >
+        <DialogContent className="max-w-6xl w-[95vw] glass-card border-border/30 p-0 overflow-hidden">
           <DialogTitle className="sr-only">
             {selected?.title ?? "Gallery Item"}
           </DialogTitle>
-          {selected && (
-            <div className="relative">
-              <div className="w-full aspect-video bg-secondary/50 overflow-hidden">
+          {selected && currentImage && (
+            <div className="grid md:grid-cols-[1fr_320px] min-h-[50vh]">
+              {/* Left — Image */}
+              <div className="relative bg-secondary/30 flex items-center justify-center overflow-hidden">
                 <img
-                  src={selected.images[0].src}
-                  alt={selected.title}
-                  className="w-full h-full object-cover"
+                  src={currentImage.src}
+                  alt={currentImage.caption || selected.title}
+                  className="w-full h-full object-contain max-h-[70vh]"
                 />
+
+                {/* Project nav arrows */}
+                <button
+                  onClick={(e) => { e.stopPropagation(); goPrev(); }}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-background transition-colors"
+                  aria-label="Previous project"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={(e) => { e.stopPropagation(); goNext(); }}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-background transition-colors"
+                  aria-label="Next project"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
               </div>
 
-              {/* Navigation arrows */}
-              <button
-                onClick={(e) => { e.stopPropagation(); goPrev(); }}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-background transition-colors"
-                aria-label="Previous"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={(e) => { e.stopPropagation(); goNext(); }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-background transition-colors"
-                aria-label="Next"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
+              {/* Right — Description */}
+              <div className="p-6 md:p-8 flex flex-col justify-between border-l border-border/30">
+                <div>
+                  <span className="inline-block px-2.5 py-1 rounded-full bg-primary/10 text-xs text-primary font-medium mb-3">
+                    {selected.tag}
+                  </span>
+                  <h3 className="font-display text-xl md:text-2xl font-bold mb-2">
+                    {selected.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm mb-4">
+                    {selected.description}
+                  </p>
+                  {currentImage.caption && (
+                    <p className="text-xs text-muted-foreground/80 italic border-t border-border/20 pt-3">
+                      {currentImage.caption}
+                    </p>
+                  )}
+                </div>
 
-              <div className="p-6 md:p-8">
-                <span className="inline-block px-2.5 py-1 rounded-full bg-primary/10 text-xs text-primary font-medium mb-3">
-                  {selected.tag}
-                </span>
-                <h3 className="font-display text-xl md:text-2xl font-bold mb-2">
-                  {selected.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {selected.description}
-                </p>
+                {/* Image thumbnails for multi-image projects */}
+                {selected.images.length > 1 && (
+                  <div className="mt-4 pt-4 border-t border-border/30">
+                    <span className="text-xs text-muted-foreground mb-2 block">
+                      {selectedImageIndex + 1} of {selected.images.length} screenshots
+                    </span>
+                    <div className="flex gap-2 flex-wrap">
+                      {selected.images.map((img, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setSelectedImageIndex(i)}
+                          className={`w-16 h-10 rounded-lg overflow-hidden border-2 transition-all ${
+                            i === selectedImageIndex
+                              ? "border-primary shadow-[0_0_8px_hsl(var(--primary)/0.4)]"
+                              : "border-border/30 opacity-60 hover:opacity-100"
+                          }`}
+                        >
+                          <img
+                            src={img.src}
+                            alt={img.caption || `Screenshot ${i + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/30">
                   <span className="text-xs text-muted-foreground">
-                    {selectedIndex !== null ? selectedIndex + 1 : 0} / {galleryItems.length}
+                    Project {selectedIndex !== null ? selectedIndex + 1 : 0} / {galleryItems.length}
                   </span>
                 </div>
               </div>
