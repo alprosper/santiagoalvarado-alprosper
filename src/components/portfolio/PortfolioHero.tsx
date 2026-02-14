@@ -1,9 +1,27 @@
 import { m } from "@/components/LazyMotionProvider";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Cog } from "lucide-react";
+import { ArrowRight, Cog, Play } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useState } from "react";
 import headshot from "@/assets/headshot.png";
 
+const VSL_URL = "https://storage.googleapis.com/msgsndr/cSyIZFAgwXwZic4pCtod/media/6990c721899b88d2c494b0ed.mp4";
+
 export const PortfolioHero = () => {
+  const [vslOpen, setVslOpen] = useState(false);
+
+  return (
+    <>
+    <Dialog open={vslOpen} onOpenChange={setVslOpen}>
+      <DialogContent className="max-w-4xl p-0 border-none bg-black/95 overflow-hidden">
+        <video
+          src={VSL_URL}
+          controls
+          autoPlay
+          className="w-full aspect-video"
+        />
+      </DialogContent>
+    </Dialog>
   return (
     <section className="relative pt-24 px-6 pb-4 flex-col flex items-center justify-start">
       <div className="max-w-5xl mx-auto w-full">
@@ -101,11 +119,21 @@ export const PortfolioHero = () => {
             <div className="absolute inset-0 bg-primary/5 blur-[120px] rounded-full scale-75" />
             
             <div className="relative flex flex-col items-center gap-4">
-              <img
-                src={headshot}
-                alt="Santiago Alvarado"
-                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover"
-                style={{ boxShadow: '0 0 40px -10px hsl(var(--primary) / 0.2)' }} />
+              <button
+                onClick={() => setVslOpen(true)}
+                className="relative group cursor-pointer rounded-full"
+                aria-label="Watch video"
+              >
+                <img
+                  src={headshot}
+                  alt="Santiago Alvarado"
+                  className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover"
+                  style={{ boxShadow: '0 0 40px -10px hsl(var(--primary) / 0.2)' }}
+                />
+                <div className="absolute inset-0 rounded-full bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <Play className="w-16 h-16 text-white fill-white/80" />
+                </div>
+              </button>
 
               <div className="flex items-center gap-3">
                 <a
@@ -147,6 +175,6 @@ export const PortfolioHero = () => {
         </div>
 
       </div>
-    </section>);
-
+     </section>
+    </>);
 };
