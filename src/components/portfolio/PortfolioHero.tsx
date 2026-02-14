@@ -147,7 +147,7 @@ export const PortfolioHero = () => {
                       ref={videoRef}
                       src={VSL_URL}
                       controls
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain bg-black"
                       onEnded={handleStop}
                     />
                     <button
