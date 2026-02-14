@@ -146,20 +146,6 @@ export const PortfolioHero = () => {
           </m.div>
         </div>
 
-        {/* Scroll indicator */}
-        <m.div
-          className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, 10, 0] }}
-          transition={{
-            opacity: { delay: 1, duration: 0.5 },
-            y: { delay: 1, duration: 2, repeat: Infinity, ease: "easeInOut" },
-          }}
-        >
-          <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-          </div>
-        </m.div>
       </div>
     </section>
   );
