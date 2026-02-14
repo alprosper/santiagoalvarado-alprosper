@@ -20,9 +20,9 @@ const Index = () => {
         <PortfolioNavbar />
         <main>
           <PortfolioHero />
+          <TechMarquee />
           <PortfolioGallery />
           <PortfolioServices />
-          <TechMarquee />
           <SectionDivider />
           <PortfolioContact />
         </main>
