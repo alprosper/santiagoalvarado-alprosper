@@ -84,11 +84,6 @@ export default defineConfig(({ mode }) => ({
   },
   css: {
     devSourcemap: true,
-    postcss: {
-      plugins: [
-        // Aggressive minification for production
-      ],
-    },
   },
   // Enable better compression
   esbuild: {
