@@ -25,7 +25,7 @@ export const ScrollIndicator = () => {
     <button
       onClick={handleClick}
       aria-label={showScrollUp ? "Scroll to top" : "Scroll down"}
-      className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full bg-primary/90 text-primary-foreground flex items-center justify-center shadow-lg backdrop-blur-sm hover:bg-primary transition-colors"
+      className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full glass-card flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300"
     >
       <AnimatePresence mode="wait" initial={false}>
         {showScrollUp ? (
