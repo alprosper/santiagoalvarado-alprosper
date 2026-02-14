@@ -12,11 +12,19 @@ type GalleryItem = {
   description: string;
   images: { src: string; caption: string }[];
   tag: string;
+  logo?: React.ReactNode;
 };
 
 const galleryItems: GalleryItem[] = [
   {
     title: "GHL Workflow Automation",
+    logo: (
+      <svg viewBox="0 0 40 40" className="w-7 h-7 inline-block mr-2 -mt-1" aria-label="GoHighLevel">
+        <path d="M12 28V8l4 4v16z" fill="#3B82F6" />
+        <path d="M20 28V12l4 4v12z" fill="#22C55E" />
+        <path d="M28 28V16l4 4v8z" fill="#F59E0B" />
+      </svg>
+    ),
     description: "Advanced multi-step workflows with conditional logic, automated lead nurturing, and pipeline management inside GoHighLevel.",
     images: [
       { src: ghlWorkflow1, caption: "OpenAI-powered call summary and action items for the assigned user" },
@@ -186,7 +194,7 @@ export const PortfolioGallery = () => {
                     {item.tag}
                   </span>
                   <h3 className="font-display text-xl md:text-2xl font-bold mb-3 text-foreground">
-                    {item.title}
+                    {item.logo}{item.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
                     {item.description}
