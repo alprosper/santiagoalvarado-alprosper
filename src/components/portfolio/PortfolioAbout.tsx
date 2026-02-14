@@ -45,13 +45,13 @@ export const PortfolioAbout = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="md:col-span-2 glass-card p-4 aspect-video md:aspect-auto flex items-center justify-center overflow-hidden"
           >
-            {/* Replace the placeholder below with your video embed */}
-            <div className="w-full h-full rounded-xl bg-muted/30 flex flex-col items-center justify-center gap-3 text-muted-foreground min-h-[280px]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
-                <polygon points="6 3 20 12 6 21 6 3" />
-              </svg>
-              <span className="text-sm">Video coming soon</span>
-            </div>
+            <iframe
+              className="w-full h-full rounded-xl min-h-[280px]"
+              src="https://www.youtube.com/embed/eEBevI6JmZY"
+              title="YouTube video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </m.div>
         </div>
       </div>
