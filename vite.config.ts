@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
-import { compression } from "vite-plugin-compression2";
+
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -29,12 +29,6 @@ export default defineConfig(({ mode }) => ({
       },
       cache: true,
       cacheLocation: 'node_modules/.cache/vite-plugin-image-optimizer',
-    }),
-    // Compress CSS and JS with both gzip and brotli
-    mode === 'production' && compression({
-      include: /\.(js|mjs|json|css|html)$/,
-      threshold: 1024, // Only compress files > 1KB
-      deleteOriginalAssets: false,
     }),
   ].filter(Boolean),
   resolve: {
