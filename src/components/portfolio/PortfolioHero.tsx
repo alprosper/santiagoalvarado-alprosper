@@ -98,13 +98,14 @@ export const PortfolioHero = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             {/* Glow behind image */}
-            <div className="absolute inset-0 bg-primary/20 blur-[80px] rounded-full scale-75" />
+            <div className="absolute inset-0 bg-primary/5 blur-[120px] rounded-full scale-75" />
             
             <div className="relative">
               <img
                 src={headshot}
                 alt="Santiago Alvarado"
-                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover glow-effect"
+                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover"
+                style={{ boxShadow: '0 0 40px -10px hsl(var(--primary) / 0.2)' }}
               />
             </div>
           </m.div>
