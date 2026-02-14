@@ -145,7 +145,7 @@ export const PortfolioGallery = () => {
                   <div className="glass-card overflow-hidden hover:border-primary/30 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.3)] transition-all duration-300">
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <img
-                        src={item.images[cardImageIndices[index] || 0]?.src || item.thumbnail || item.images[0].src}
+                        src={cardImageIndices[index] !== undefined ? item.images[cardImageIndices[index]].src : (item.thumbnail || item.images[0].src)}
                         alt={item.title}
                         className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
