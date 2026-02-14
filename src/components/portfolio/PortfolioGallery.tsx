@@ -9,6 +9,9 @@ import ghlWorkflow4 from "@/assets/portfolio/ghl-workflow-4.png";
 import appDev1 from "@/assets/portfolio/app-dev-1.png";
 import appDev2 from "@/assets/portfolio/app-dev-2.png";
 import appDev3 from "@/assets/portfolio/app-dev-3.png";
+import websiteDev1 from "@/assets/portfolio/website-dev-1.png";
+import websiteDev2 from "@/assets/portfolio/website-dev-2.png";
+import websiteDev3 from "@/assets/portfolio/website-dev-3.png";
 import n8nWorkflow1 from "@/assets/portfolio/n8n-workflow-1.png";
 import n8nWorkflow2 from "@/assets/portfolio/n8n-workflow-2.png";
 import n8nWorkflow3 from "@/assets/portfolio/n8n-workflow-3.png";
@@ -57,9 +60,13 @@ const galleryItems: GalleryItem[] = [
     tag: "Development",
   },
   {
-    title: "SaaS Marketing Website",
+    title: "Website Development",
     description: "High-performance marketing sites with mobile-first design, SEO optimization, and analytics integration.",
-    images: [{ src: "https://placehold.co/800x500/1a1a2e/f97316?text=SaaS+Website", caption: "" }],
+    images: [
+      { src: websiteDev1, caption: "alprosper.com — SaaS marketing website with analytics dashboard and strategy call booking" },
+      { src: websiteDev2, caption: "qlinks.bio — Link-in-bio platform with pricing tiers and audience engagement tools" },
+      { src: websiteDev3, caption: "artisans.com — Luxury home organization service site with design consultation booking" },
+    ],
     tag: "Development",
   },
 ];
