@@ -2,8 +2,8 @@ import { m } from "@/components/LazyMotionProvider";
 
 const techItems = [
 "n8n", "REST APIs", "Webhooks", "PostgreSQL", "Slack", "Zapier", "Make",
-"Google Sheets", "CRM Integration", "Data Pipelines", "Node.js", "Python",
-"JSON", "OAuth", "GraphQL", "Airtable", "HubSpot", "Twilio"];
+"Google Sheets", "CRM Integration", "Data Pipelines", "Node.js",
+"JSON", "OAuth", "Twilio"];
 
 
 export const TechMarquee = () => {
