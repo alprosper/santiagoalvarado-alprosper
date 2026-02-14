@@ -109,7 +109,7 @@ export const PortfolioHero = () => {
               />
               <div className="flex items-center gap-3">
                 <a
-                  href="https://www.upwork.com"
+                  href="https://www.upwork.com/freelancers/santiagoalprosper"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-card px-4 py-2 rounded-full flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all duration-300"
@@ -120,7 +120,7 @@ export const PortfolioHero = () => {
                   Upwork
                 </a>
                 <a
-                  href="https://www.linkedin.com"
+                  href="https://www.linkedin.com/in/alprosperai/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-card px-4 py-2 rounded-full flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all duration-300"
@@ -131,7 +131,7 @@ export const PortfolioHero = () => {
                   LinkedIn
                 </a>
                 <a
-                  href="https://www.youtube.com"
+                  href="https://www.linkedin.com/in/alprosperai/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-card px-4 py-2 rounded-full flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all duration-300"
