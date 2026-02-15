@@ -60,22 +60,29 @@ export const PortfolioContact = ({ embedded }: { embedded?: boolean }) => {
     }
   };
 
-  const inner = (
+  const header = (
     <m.div
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6 }}
+      className="text-center mb-8"
     >
-      <div className="text-center mb-8">
-        <span className="inline-block px-4 py-2 rounded-full glass-card text-sm text-primary mb-6">
-          Contact
-        </span>
-        <p className="text-muted-foreground max-w-xl mx-auto">
-          Tell us what you need and we'll get back to you
-        </p>
-      </div>
+      <span className="inline-block px-4 py-2 rounded-full glass-card text-sm text-primary mb-6">
+        Contact
+      </span>
+      <p className="text-muted-foreground max-w-xl mx-auto">
+        Tell us what you need and we'll get back to you
+      </p>
+    </m.div>
+  );
 
+  const formContent = (
+    <m.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.6, delay: 0.1 }}
+    >
       {isSubmitted ? (
         <div className="text-center py-12">
           <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
@@ -201,11 +208,19 @@ export const PortfolioContact = ({ embedded }: { embedded?: boolean }) => {
     </m.div>
   );
 
-  if (embedded) return <div id="contact" className="glass-card p-8 md:p-10">{inner}</div>;
+  if (embedded) return (
+    <div id="contact">
+      {header}
+      <div className="glass-card p-8 md:p-10">{formContent}</div>
+    </div>
+  );
 
   return (
     <section id="contact" className="py-24 px-6 relative">
-      <div className="max-w-4xl mx-auto relative">{inner}</div>
+      <div className="max-w-4xl mx-auto relative">
+        {header}
+        {formContent}
+      </div>
     </section>
   );
 };
