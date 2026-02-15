@@ -123,36 +123,38 @@ export const PortfolioContact = ({ embedded }: { embedded?: boolean }) => {
             />
           </div>
 
-          <div>
-            <Label htmlFor="contact-email" className="text-foreground">
-              Email <span className="text-primary">*</span>
-            </Label>
-            <Input
-              id="contact-email"
-              name="email"
-              type="email"
-              placeholder="you@example.com"
-              value={formData.email}
-              onChange={handleChange}
-              maxLength={255}
-              required
-              className="mt-2 bg-background/50 border-border/50"
-            />
-          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <Label htmlFor="contact-email" className="text-foreground">
+                Email <span className="text-primary">*</span>
+              </Label>
+              <Input
+                id="contact-email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                value={formData.email}
+                onChange={handleChange}
+                maxLength={255}
+                required
+                className="mt-2 bg-background/50 border-border/50"
+              />
+            </div>
 
-          <div>
-            <Label htmlFor="contact-phone" className="text-foreground">
-              Phone Number
-            </Label>
-            <Input
-              id="contact-phone"
-              name="phone"
-              type="tel"
-              placeholder="+1 (555) 000-0000"
-              value={formData.phone}
-              onChange={handleChange}
-              className="mt-2 bg-background/50 border-border/50"
-            />
+            <div>
+              <Label htmlFor="contact-phone" className="text-foreground">
+                Phone Number
+              </Label>
+              <Input
+                id="contact-phone"
+                name="phone"
+                type="tel"
+                placeholder="+1 (555) 000-0000"
+                value={formData.phone}
+                onChange={handleChange}
+                className="mt-2 bg-background/50 border-border/50"
+              />
+            </div>
           </div>
 
           <div>
