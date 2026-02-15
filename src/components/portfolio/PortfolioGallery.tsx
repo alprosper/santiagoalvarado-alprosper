@@ -43,6 +43,7 @@ const galleryItems: GalleryItem[] = [
   {
     title: "GHL Workflow Automation",
     description: "Advanced multi-step workflows with conditional logic, automated lead nurturing, and pipeline management inside GoHighLevel.",
+    thumbnail: ghlWorkflow2,
     images: [
       { src: ghlWorkflow1, caption: "OpenAI-powered call summary and action items for the assigned user" },
       { src: ghlWorkflow2, caption: "SMS-to-AI Agent automation for processing responses and alerting the team" },
