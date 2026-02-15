@@ -143,7 +143,7 @@ export const PortfolioGallery = () => {
                   }`}
                   onClick={() => { setSelectedIndex(index); setSelectedImageIndex(0); }}
                 >
-                  <div className="glass-card overflow-hidden hover:border-primary/30 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.3)] transition-all duration-300">
+                  <div className="glass-card overflow-hidden border border-border/40 hover:border-primary/30 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.3)] transition-all duration-300">
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <img
                         src={cardImageIndices[index] !== undefined ? item.images[cardImageIndices[index]].src : (item.thumbnail || item.images[0].src)}
