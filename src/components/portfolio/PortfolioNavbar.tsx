@@ -10,9 +10,12 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+const nameTexts = ["Santiago Alvarado", "Automation Specialist"];
+
 export const PortfolioNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [nameIndex, setNameIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +23,13 @@ export const PortfolioNavbar = () => {
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNameIndex((prev) => (prev + 1) % nameTexts.length);
+    }, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   const scrollToSection = (href: string) => {
@@ -43,9 +53,20 @@ export const PortfolioNavbar = () => {
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="font-display text-xl font-bold tracking-tight"
+            className="font-display text-base md:text-xl font-bold tracking-tight relative h-7 md:h-8 overflow-hidden text-left min-w-[180px] md:min-w-[230px]"
           >
-            <span className="gradient-text">Santiago Alvarado</span>
+            <AnimatePresence mode="wait">
+              <m.span
+                key={nameTexts[nameIndex]}
+                className="gradient-text block whitespace-nowrap"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -20, opacity: 0 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              >
+                {nameTexts[nameIndex]}
+              </m.span>
+            </AnimatePresence>
           </button>
 
           {/* Desktop Nav */}
