@@ -23,7 +23,7 @@ const Index = () => {
           <PortfolioHero />
           <TechMarquee />
           <PortfolioGallery />
-          <section className="py-24 px-6 relative">
+          <section className="py-24 px-6 relative pt-[50px]">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
               <PortfolioServices embedded />
               <PortfolioContact embedded />
@@ -33,8 +33,8 @@ const Index = () => {
         <PortfolioFooter />
         <ScrollIndicator />
       </div>
-    </LazyMotionProvider>
-  );
+    </LazyMotionProvider>);
+
 };
 
 export default Index;
