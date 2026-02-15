@@ -85,7 +85,7 @@ serve(async (req) => {
       console.error('GHL API error:', response.status, errorText);
       
       // If contact already exists, try to update with notes
-      if (response.status === 422 || response.status === 409) {
+      if (response.status === 400 || response.status === 422 || response.status === 409) {
         console.log('Contact may already exist, attempting to search and update');
         
         // Search for existing contact
