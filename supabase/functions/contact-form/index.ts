@@ -70,7 +70,7 @@ serve(async (req) => {
         name,
         phone: phone || '',
         source: 'Website Contact Form',
-        tags: ['contact-form', 'alprosper site lead'],
+        tags: ['contact-form', 'santiago - portfolio site lead'],
         customFields: [
           {
             key: 'contact_message',
