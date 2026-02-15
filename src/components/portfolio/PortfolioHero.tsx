@@ -46,7 +46,7 @@ export const PortfolioHero = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}>
 
-              {"I Turn Chaos Into ".split(" ").map((word, i) =>
+              {"I Turn Chaos Into".split(" ").map((word, i) =>
               <m.span
                 key={i}
                 className="inline-block mr-[0.3em]"
