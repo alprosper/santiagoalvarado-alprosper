@@ -164,7 +164,7 @@ export const PortfolioContact = ({ embedded }: { embedded?: boolean }) => {
             <textarea
               id="contact-message"
               name="message"
-              placeholder="Tell us about your project or question..."
+              placeholder="Tell me about your project or needs..."
               value={formData.message}
               onChange={handleChange}
               maxLength={1000}
