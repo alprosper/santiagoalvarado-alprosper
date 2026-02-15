@@ -24,7 +24,7 @@ export const PortfolioServices = ({ embedded }: { embedded?: boolean }) => {
     <>
       <m.div
         ref={ref}
-        className="text-center mb-12"
+        className="text-center mb-8"
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.6 }}
