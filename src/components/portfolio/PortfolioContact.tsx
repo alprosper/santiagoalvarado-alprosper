@@ -213,7 +213,7 @@ export const PortfolioContact = ({ embedded }: { embedded?: boolean }) => {
   if (embedded) return (
     <div id="contact">
       {header}
-      <div className="glass-card p-8 md:p-10 border border-border/50">{formContent}</div>
+      <div className="glass-card p-8 md:p-10 border border-border">{formContent}</div>
     </div>
   );
 
