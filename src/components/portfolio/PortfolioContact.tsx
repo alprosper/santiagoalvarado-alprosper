@@ -71,9 +71,6 @@ export const PortfolioContact = ({ embedded }: { embedded?: boolean }) => {
         <span className="inline-block px-4 py-2 rounded-full glass-card text-sm text-primary mb-6">
           Contact
         </span>
-        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-          Let's Build <span className="gradient-text">Something</span>
-        </h2>
         <p className="text-muted-foreground max-w-xl mx-auto">
           Tell us what you need and we'll get back to you
         </p>
