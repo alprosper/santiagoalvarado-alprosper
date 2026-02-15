@@ -199,7 +199,7 @@ const Contact = () => {
                       <textarea
                         id="message"
                         name="message"
-                        placeholder="Tell us about your project or question..."
+                        placeholder="Tell me about your project or needs..."
                         value={formData.message}
                         onChange={handleChange}
                         rows={5}
